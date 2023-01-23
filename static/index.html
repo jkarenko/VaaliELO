@@ -1,0 +1,72 @@
+<html>
+<head>
+    <style>
+        /* Style for the options */
+        .option {
+            position: absolute;
+            width: 50%;
+            height: 25%;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 3em;
+        }
+
+        /* Style for the option icons (numbers) */
+        .option .icon {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+        }
+
+        /* Style for the "next" button */
+        .next-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            cursor: pointer;
+            pointer-events: none; /* Initially disabled */
+        }
+
+        /* Style for the selected option */
+        .selected {
+            background-color: #5cb85c; /* Green */
+        }
+    </style>
+    <script>
+        function optionClicked(option) {
+            // Un-highlight all options
+            var options = document.querySelectorAll('.option');
+            for (var i = 0; i < options.length; i++) {
+                options[i].classList.remove('selected');
+            }
+
+            // Highlight the selected option
+            option.classList.add('selected');
+
+            // Enable the "next" button
+            document.querySelector('.next-button').style.pointerEvents = 'auto';
+        }
+    </script>
+</head>
+<body>
+<div class="option" style="left: 0; top: 25%;" onclick="optionClicked(this)">
+    <div class="icon">1</div>
+</div>
+<div class="option" style="right: 0; top: 50%;" onclick="optionClicked(this)">
+    <div class="icon">2</div>
+</div>
+<div class="next-button">Next</div>
+</body>
+</html>
